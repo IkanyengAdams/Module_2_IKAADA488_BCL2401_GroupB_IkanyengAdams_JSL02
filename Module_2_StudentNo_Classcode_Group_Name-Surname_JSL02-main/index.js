@@ -21,10 +21,19 @@ document.querySelector('#submitWorkout').addEventListener('click', displayWorkou
 const addNewGoal = () => {
     const goalInput = document.querySelector('#goalInput').value;
     const goalList = document.querySelector('#goalList');
+    const myArray = Array.from(document.querySelectorAll('li'));
     
     // ⚠️ Hint 1: Check for duplicates
     // Use 'goalList' to get all existing goals and check if 'goalInput' matches any of them.
-    
+        for(let i =0;i <  myArray.length ; i++) {
+            let space = goalInput.trim();
+        if ( myArray[i].textContent.toLocaleUpperCase() === space.toLocaleUpperCase()){
+        if (alert('This goal already exist') === undefined) {
+            document.querySelector('#goalInput').value = '';
+        }
+            return;
+        }
+    };
     // ⚠️ Hint 2: Prevent duplicates
     // If a duplicate is found, display an alert to the user and don't add the goal to the list.
     // If it's not a duplicate, proceed with adding it as a new goal.
@@ -39,6 +48,7 @@ const addNewGoal = () => {
     const newGoal = document.createElement('li');
     newGoal.textContent = goalInput;
     goalList.appendChild(newGoal);
+    document.querySelector('#goalInput').value = '';
 };
 
 // Add event listener to the goal submit button
