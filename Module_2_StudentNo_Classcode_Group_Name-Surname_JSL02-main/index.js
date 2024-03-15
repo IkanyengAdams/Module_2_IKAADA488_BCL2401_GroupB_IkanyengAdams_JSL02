@@ -28,7 +28,7 @@ const addNewGoal = () => {
         for(let i =0;i <  myArray.length ; i++) {
             let space = goalInput.trim();
         if ( myArray[i].textContent.toLocaleUpperCase() === space.toLocaleUpperCase()){
-        if (alert('This goal already exist') === undefined) {
+        if (alert('This goal already exists!') === undefined) {
             document.querySelector('#goalInput').value = '';
         }
             return;
